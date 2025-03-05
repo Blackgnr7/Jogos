@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{% static 'img/icon-site.png'%}">
+    <link rel="stylesheet" href="{% static 'style/home.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games-simple</title>
+</head>
+<body style="background-color: rgb(24, 21, 21);">
+    <div>
+        <img src="{% static 'img/images.png'%}" id="snake">
+        <img src="{% static 'img/images.jpg'%}" id="minesweeper">
+    </div>
+</body>
+<script src="{% static 'script/home.js'%}"></script>
+</html>

@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static '/img/images.png'%}">
+    <link rel="stylesheet" href="{% static '/style/snake.css'%}">
+    <title>Snake</title>
+</head>
+<body style="background-color: rgb(24, 21, 21);">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="http://127.0.0.1:8000">home</a>
+    </nav>
+    <header>
+        <menu>
+            <button onclick="taindo()">Play</button>
+        </menu>
+        <campo id="tabuleiro" class="true">
+            
+        </campo>
+    </header>
+    <script>
+        function taindo(){
+            var pause_play = document.querySelector('#tabuleiro').getAttribute("class")
+            var pause = false
+            if(pause == false){
+                document.querySelector('#tabuleiro').setAttribute("class", "false")
+                setTimeout(1000)
+            }
+        }
+        var tamanhoX = 32
+        var tamanhoY = 32
+        const campo = document.querySelector("#tabuleiro")
+        for(let i = 1; i < 17; i++){
+            for(let j = 1; j < 17; j++){
+                let quadrado = document.createElement('div')
+                quadrado.setAttribute("id", `i${i}j${j}`)
+                quadrado.setAttribute("class", "quadrado")
+                campo.appendChild(quadrado)
+                quadrado.style.backgroundColor = "white"
+                quadrado.style.color = "black"
+            }
+        }
+    </script>
+</body>
+<style>
+button{
+    font-size: 20px;
+    width: 50px;
+    height: 30px;
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+campo{
+    width: 640px;
+    height: 640px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+body{
+    margin: 0;
+}
+nav{
+    background-color: rgb(6, 99, 99);
+}
+.quadrado{
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.navbar-brand{
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    left: 10%;
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+.navbar-brand:hover{
+    color: rgb(182, 182, 182);
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+</style>
+</html>
