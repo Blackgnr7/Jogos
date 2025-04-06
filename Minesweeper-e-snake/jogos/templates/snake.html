@@ -14,7 +14,7 @@
     </nav>
     <header>
         <menu>
-            <button onclick="taindo()">Play</button>
+            <button onclick="taindo()" id="botão_de_Pausar_ou_Não">despausar</button>
         </menu>
         <campo id="tabuleiro" class="true">
             
@@ -22,15 +22,22 @@
     </header>
     <script>
         function taindo(){
-            var pause_play = document.querySelector('#tabuleiro').getAttribute("class")
-            var pause = false
-            if(pause == false){
+            var botão = document.querySelector('#botão_de_Pausar_ou_Não')
+            if(botão.textContent == "despausar"){
                 document.querySelector('#tabuleiro').setAttribute("class", "false")
-                setTimeout(1000)
+                botão.innerHTML = "pausar"
+                await(1000)
+            }
+            if(botão.innerHTML == "pausar"){
+                document.querySelector('#tabuleiro').setAttribute("class", "true")
+                botão.innerHTML = "despausar"
+                await(1000)
             }
         }
-        var tamanhoX = 32
-        var tamanhoY = 32
+        locali = parseInt(Math.random() * 16) + 1;
+        localj = parseInt(Math.random() * 16) + 1;
+        document.getElementById("i'locali'j'localj").style.backgroundColor = "White"
+
         const campo = document.querySelector("#tabuleiro")
         for(let i = 1; i < 17; i++){
             for(let j = 1; j < 17; j++){
@@ -38,17 +45,18 @@
                 quadrado.setAttribute("id", `i${i}j${j}`)
                 quadrado.setAttribute("class", "quadrado")
                 campo.appendChild(quadrado)
-                quadrado.style.backgroundColor = "white"
-                quadrado.style.color = "black"
+                quadrado.style.backgroundColor = "White"
             }
         }
     </script>
 </body>
 <style>
 button{
+    margin-right: 20px;
+    padding: 0px;
     font-size: 20px;
-    width: 50px;
-    height: 30px;
+    width: 100px;
+    height: 50px;
 }
 header{
     display: flex;
